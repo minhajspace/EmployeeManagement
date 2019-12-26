@@ -12,7 +12,7 @@ class Home extends React.Component {
   };
   render() {
     return (
-      <>
+      <div>
         <h1>Employee List</h1>
         {data.map(item => {
           return (
@@ -37,7 +37,7 @@ class Home extends React.Component {
             </p>
           );
         })}
-      </>
+      </div>
     );
   }
 }
