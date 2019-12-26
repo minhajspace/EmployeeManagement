@@ -1,40 +1,45 @@
 import React from "react";
-import data from "../data.json";
-import { Link } from "react-router-dom";
-
-
-import './Home.css'
+import data from "../data.json"
+import { withRouter } from "react-router";
 
 class Home extends React.Component {
-  onUserClick = value => e => {
-    console.log({ value });
-    this.props.history.push('/detail')
+  handleClick = employee => e => {
+    this.props.history.push("/details", {
+      state: {
+        details: employee
+      }
+    });
   };
   render() {
     return (
-      <div>
-        <Link className="link " to="/detail">
-          {data.map((value, index) => {
-
-            return (
-              <div className="ui card" onClick={this.onUserClick(value)}>
+      <>
+        <h1>Employee List</h1>
+        {data.map(item => {
+          return (
+            <p
+              onClick={this.handleClick(item)}
+              className="employee-card"
+              key={item.id}
+            >
+              <div className="ui cards">
                 <div className="card">
                   <div className="content">
-
-                    <div className="header">{`  Employe Name ${value.employee_name}`}</div>
+                    <div className="header">
+                      {` Employe Name ${item.employee_name}`}
+                    </div>
+                    <div className="meta">
+                      {` Employe Age ${item.employee_age}`}
+                    </div>
                   </div>
-                  <div className="meta">{`Employe Age  ${value.employee_age}`}</div>
-                  <div>{this.props.children} </div>
                 </div>
-
               </div>
 
-            );
-          })}
-        </Link>
-      </div>
+            </p>
+          );
+        })}
+      </>
     );
   }
 }
 
-export default Home;
+export default withRouter(Home);
