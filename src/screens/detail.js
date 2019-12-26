@@ -27,7 +27,7 @@ class Details extends React.Component {
             <li> <h5>Employee Age</h5> </li>
             <p>{employee_age}</p>
             <li>    <h5>Employee Profile Image</h5> </li>
-            <img alt="employee avatar" src={profile_image} />
+            <img className="right  mini ui image" alt="employee avatar" src={profile_image} />
             <div className="back-button" onClick={this.handleBackClick}>
 
               <button class="ui button">
