@@ -1,6 +1,6 @@
 import React from "react";
 import data from "../data.json";
-import home from "../screens/home";
+
 
 const Detail = props => {
   return (
